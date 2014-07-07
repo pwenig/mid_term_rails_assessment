@@ -5,8 +5,12 @@
   <%= f.submit "Post" %>
 <% end %>
 
-<% if current_user.valid? %>
-  <%= link_to 'Add Comment' %>
-  <% end %>
 
 <%= render partial: 'posts/post', collection: @posts %>
+
+<div class="add_comment">
+<% if current_user.valid? %>
+  <%= link_to 'Add Comment' %>
+<% end %>
+
+</div>
