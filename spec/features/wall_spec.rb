@@ -2,6 +2,9 @@ require 'rails_helper'
 require 'capybara/rails'
 
 feature 'Wall' do
+  before do
+    DatabaseCleaner.clean
+  end
 
   scenario 'Users can post' do
     create_user email: "user@example.com", name: "Some User"
@@ -36,5 +39,21 @@ feature 'Wall' do
 
     expect(page).to have_content "Add Comment"
   end
+
+  scenario 'Logged in user clicks add comment and sees new comment form' do
+    create_user email: "user@example.com", name: "Some User"
+    create_user email: "reader@example.com", name: "Reader User"
+
+    visit root_path
+    fill_in "Email", with: "user@example.com"
+    fill_in "Password", with: "password"
+    click_on "Login"
+
+    click_on "Add Comment"
+
+    expect(page).to have_content "Add a comment"
+
+  end
+
 
 end
