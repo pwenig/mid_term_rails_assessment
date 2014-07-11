@@ -41,6 +41,7 @@ header {
   margin-bottom: 1em;
 }
 
+
 .signin-form {
   width: 20em;
   border: 1px solid #ccc;
@@ -48,7 +49,7 @@ header {
   margin: 2em auto;
   background: #efefef;
 
-  > div {
+  div {
     padding: .3em 0;
   }
 
@@ -97,7 +98,8 @@ header {
   }
 }
 
-.add_comment {
+.link {
   float: right;
   color: blue;
 }
+
