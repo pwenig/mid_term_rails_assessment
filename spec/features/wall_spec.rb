@@ -21,7 +21,14 @@ feature 'Wall' do
     fill_in "Password", with: "password"
     click_on "Login"
 
+    expect(page).to have_content("Add Comment")
     expect(page).to have_content("I'm doing some fun things here")
+
+    click_on "Add Comment"
+    fill_in "Comment", with: "I love this post"
+    click_on "Add Comment"
+    expect(page).to have_content "I love this post"
+
   end
 
 end

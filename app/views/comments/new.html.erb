@@ -1,0 +1,7 @@
+<h3>Add a comment</h3>
+
+<%= form_for [@post, @comment] do |c| %>
+<%= c.label :comment %>
+<%= c.text_area :comment %>
+<%= c.submit "Add Comment" %>
+<% end %>
