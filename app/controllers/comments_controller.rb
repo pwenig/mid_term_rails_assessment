@@ -9,6 +9,7 @@ class CommentsController < ApplicationController
     @comment = Comment.new(comment_attributes)
     @comment.post_id = @post.id
     @comment.user_id = current_user.id
+
     if @comment.save
       redirect_to root_path
     else
