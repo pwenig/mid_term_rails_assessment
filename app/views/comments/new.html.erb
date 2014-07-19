@@ -1,0 +1,6 @@
+<h2>Add a comment</h2>
+
+<%= form_for [@post, @comment] do |c| %>
+<%= c.text_area :body, placeholder: "Speak your mind..." %>
+<%= c.submit 'Add Comment' %>
+<% end %>
