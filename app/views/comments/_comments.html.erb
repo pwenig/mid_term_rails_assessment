@@ -1,3 +1,9 @@
+<% if comments.errors.empty? %>
+      <% comments.errors.messages.values.each do |message| %>
+        <%= message.first %>
+      <% end %>
+<% end %>
+
 <br>
 <%= comments.body %>
 <%= comments.user %>
