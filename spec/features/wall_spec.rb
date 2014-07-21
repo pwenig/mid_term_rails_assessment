@@ -24,4 +24,21 @@ feature 'Wall' do
     expect(page).to have_content("I'm doing some fun things here")
   end
 
+  scenario 'User can add a comment to a post' do
+    create_user email: "user@example.com", name: "Some User"
+
+    visit root_path
+    fill_in "Email", with: "user@example.com"
+    fill_in "Password", with: "password"
+    click_on "Login"
+
+    fill_in "post_body", with: "I'm doing some fun things here"
+    click_on "Post"
+    click_on "Add Comment"
+    fill_in "comment[body]", with: "I love this post"
+    click_on "Add Comment"
+
+    expect(page).to have_content "I love this post"
+  end
+
 end
