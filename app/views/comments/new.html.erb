@@ -1,1 +1,6 @@
 <h2>Add a comment</h2>
+
+<%= form_for [@post, @comment] do |t| %>
+
+  <%= t.text_area :body %>
+<% end %>

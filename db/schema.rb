@@ -11,10 +11,15 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140702020104) do
+ActiveRecord::Schema.define(version: 20140807160933) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "comments", force: true do |t|
+    t.integer "post_id"
+    t.text    "body"
+  end
 
   create_table "posts", force: true do |t|
     t.integer  "user_id",    null: false
