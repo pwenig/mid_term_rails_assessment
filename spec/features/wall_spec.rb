@@ -55,7 +55,7 @@ feature 'Wall' do
 
   end
 
-  scenario 'User can see click on Add Comment link and see comment body field' do
+  scenario 'User can see click on Add Comment link and see comment body field & Add Comment button' do
     create_user email: "user@example.com", name: "Some User"
     create_user email: "reader@example.com", name: "Reader User"
 
@@ -68,6 +68,7 @@ feature 'Wall' do
     click_on "Post"
     click_on "Add Comment"
     expect(page).to have_field "comment[body]"
+    expect(page).to have_button "Add Comment"
 
   end
 
