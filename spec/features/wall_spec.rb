@@ -72,4 +72,20 @@ feature 'Wall' do
 
   end
 
+  scenario 'User can create a comment and see it on the homepage' do
+    create_user email: "user@example.com", name: "Some User"
+    create_user email: "reader@example.com", name: "Reader User"
+
+    visit root_path
+    fill_in "Email", with: "user@example.com"
+    fill_in "Password", with: "password"
+    click_on "Login"
+
+    fill_in "post_body", with: "I'm doing some fun things here"
+    click_on "Post"
+    click_on "Add Comment"
+    fill_in "comment[body]", with: "I totally agree!"
+    click_on "Add Comment"
+    expect(page).to have_content "I totally agree!"
+  end
 end
