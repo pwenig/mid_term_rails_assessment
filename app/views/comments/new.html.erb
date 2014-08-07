@@ -1,5 +1,9 @@
 <h2>Add a comment</h2>
 
+<% @comment.errors.each do |attribute, message| %>
+  <%= message %>
+<% end %>
+
 <%= form_for [@post, @comment] do |t| %>
 
   <%= t.text_area :body %>
